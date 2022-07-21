@@ -13,7 +13,7 @@ class Tenistas {
 
 const formulario = document.getElementById('idFormulario')
 const invitados = []
-
+const tenistasInvitados = []
 
 formulario.addEventListener('submit', (e) => {
     e.preventDefault()
@@ -27,6 +27,29 @@ formulario.addEventListener('submit', (e) => {
     let password = document.getElementById('exampleInputPassword1').value
     const tenistas = new Tenistas(nombre, nacionalidad, ranking, grandSlams, triunfos, derrotas, email, password)
     invitados.push(tenistas)
-    console.table(invitados)
+    localStorage.setItem('invitados', JSON.stringify(invitados)) //pasar objeto a Json
     formulario.reset()
 })
+
+
+const jugadoresInvitados = JSON.parse(localStorage.getItem('invitados')) //pasar Json a objeto
+
+
+jugadoresInvitados.forEach(tenista => {
+    const jugadorConfirmado = new Tenistas(tenista.nombre, tenista.nacionalidad, tenista.ranking, tenista.grandSlams, tenista.triunfos, tenista.derrotas, tenista.email, tenista.password)
+
+    tenistasInvitados.push(jugadorConfirmado)
+    console.table(tenistasInvitados)
+})
+
+
+
+
+
+
+
+
+
+
+
+
