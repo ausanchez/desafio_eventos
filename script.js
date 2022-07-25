@@ -32,7 +32,7 @@ formulario.addEventListener('submit', (e) => {
 })
 
 
-const jugadoresInvitados = JSON.parse(localStorage.getItem('invitados')) //pasar Json a objeto
+const jugadoresInvitados = (localStorage.getItem('invitados')) ? JSON.parse(localStorage.getItem('invitados')) : []//pasar Json a objeto
 
 
 jugadoresInvitados.forEach(tenista => {
@@ -43,7 +43,7 @@ jugadoresInvitados.forEach(tenista => {
 })
 
 
-
+tenistasInvitados.length === 0 && console.log('No hay aun jugadores confirmados')
 
 
 
