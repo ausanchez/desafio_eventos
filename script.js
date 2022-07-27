@@ -28,6 +28,11 @@ formulario.addEventListener('submit', (e) => {
     const tenistas = new Tenistas(nombre, nacionalidad, ranking, grandSlams, triunfos, derrotas, email, password)
     invitados.push(tenistas)
     localStorage.setItem('invitados', JSON.stringify(invitados)) //pasar objeto a Json
+    Swal.fire({
+        icon: 'success',
+        title: 'Jugador confirmado',
+        text: '¡Bienvenido al Torneo!',
+      })
     formulario.reset()
 })
 
